@@ -27,8 +27,10 @@ public class FightWorldManager
         }
     }
 
+    public List<Hero> heros; //战斗中的英雄集合
     public FightWorldManager()
     {
+        heros = new List<Hero>();
         ChangeState(GameState.Idle);
 
     }
@@ -65,6 +67,15 @@ public class FightWorldManager
         _current.Init();
     }
 
-
+    //添加英雄
+    public void AddHero(Block b,Dictionary<string,string> data)
+    {
+        GameObject obj = Object.Instantiate(Resources.Load($"Model/{data["Model"]}")) as GameObject;
+        obj.transform.position = new Vector3(b.transform.position.x, b.transform.position.y, -1);
+        Hero hero = obj.AddComponent<Hero>();
+        hero.Init(data, b.RowIndex, b.ColIndex);
+        b.Type = BlockType.Obstacle;
+        heros.Add(hero);
+    }
 
 }
