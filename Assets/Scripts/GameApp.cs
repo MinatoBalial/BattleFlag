@@ -27,7 +27,7 @@ public class GameApp :Singleton<GameApp>
 
     public static GameDataManager GameDataManager;
 
-
+    public static UserInputManager UserInputManager;
 
     public override void Init()
     {
@@ -41,10 +41,14 @@ public class GameApp :Singleton<GameApp>
         CameraManager = new CameraManager();
         MapManager = new MapManager();
         GameDataManager = new GameDataManager();
+        UserInputManager = new UserInputManager();
+
+
     }
 
     public override void Update(float dt)
     {
+        UserInputManager.Update();
         TimerManager.OnUpdate(dt);
         FightManager.Update(dt);
     }

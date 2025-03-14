@@ -24,6 +24,20 @@ public class Block : MonoBehaviour
         selectSp = transform.Find("select").GetComponent<SpriteRenderer>();
         gridSp = transform.Find("grid").GetComponent<SpriteRenderer>();
         dirSp = transform.Find("dir").GetComponent<SpriteRenderer>();
+
+        GameApp.MsgCenter.AddEvent(gameObject, Defines.OnSelectEvent, OnSelectCallBack);
+
+    }
+
+    private void OnDestroy()
+    {
+        GameApp.MsgCenter.RemoveEvent(gameObject, Defines.OnSelectEvent, OnSelectCallBack);
+
+    }
+
+    void OnSelectCallBack(System.Object arg)
+    {
+        GameApp.MsgCenter.PostEvent(Defines.OnUnSelectEvent);
     }
 
     void Start()

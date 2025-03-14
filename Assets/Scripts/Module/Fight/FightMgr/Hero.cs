@@ -16,15 +16,5 @@ public class Hero : ModelBase
         this.MaxHp = int.Parse(this.data["Hp"]);
         this.CurHp = MaxHp;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

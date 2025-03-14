@@ -25,9 +25,52 @@ public class ModelBase : MonoBehaviour
         ani = transform.Find("body").GetComponent<Animator>();
 
     }
-    private void Start()
+
+    protected virtual void Start()
     {
-        
+        AddEvents();
     }
+    
+    protected virtual void OnDestroy()
+    {
+        RemoveEvent();
+    }
+
+
+    //注册事件
+    protected virtual void AddEvents()
+    {
+        GameApp.MsgCenter.AddEvent(gameObject, Defines.OnSelectEvent, OnSelectCallBack);
+        GameApp.MsgCenter.AddEvent(Defines.OnUnSelectEvent, OnUnSelectCallBack);
+
+
+    }
+
+
+    //移除事件
+    protected virtual void RemoveEvent()
+    {
+        GameApp.MsgCenter.RemoveEvent(gameObject, Defines.OnSelectEvent, OnSelectCallBack);
+        GameApp.MsgCenter.RemoveEvent(Defines.OnUnSelectEvent, OnUnSelectCallBack);
+
+
+
+    }
+
+    //选中回调
+    protected virtual void OnSelectCallBack(System.Object arg)
+    {
+        //执行未选中
+        GameApp.MsgCenter.PostEvent(Defines.OnUnSelectEvent);
+        
+        bodySp.color = Color.red;
+
+    }
+
+    protected virtual void OnUnSelectCallBack(System.Object arg)
+    {
+        bodySp.color = Color.white;
+    }
+
 
 }
