@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 
 
 
@@ -50,5 +51,30 @@ public class MapManager
 
     }
 
+    public BlockType GetBlockType(int row, int col)
+    {
+        return mapArr[row, col].Type;
 
+    }
+    //显示移动区域
+    public void ShowStepGrid(ModelBase model,int step)
+    {
+        _BFS bfs = new _BFS(RowCount,ColCount);
+        List<_BFS.Point> points = bfs.Search(model.RowIndex, model.ColIndex, step);
+        for (int i=0;i <points.Count; i++)
+        {
+            mapArr[points[i].RowIndex, points[i].ColIndex].ShowGrid(Color.blue);
+        }
+    }
+
+    //隐藏移动的区域
+    public void HideStepGrid(ModelBase model,int step)
+    {
+        _BFS bfs = new _BFS(RowCount, ColCount);
+        List<_BFS.Point> points = bfs.Search(model.RowIndex, model.ColIndex, step);
+        for (int i = 0; i < points.Count; i++)
+        {
+            mapArr[points[i].RowIndex, points[i].ColIndex].HideGrid();
+        }
+    }
 }

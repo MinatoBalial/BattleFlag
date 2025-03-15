@@ -62,15 +62,18 @@ public class ModelBase : MonoBehaviour
     {
         //Ö´ÐÐÎ´Ñ¡ÖÐ
         GameApp.MsgCenter.PostEvent(Defines.OnUnSelectEvent);
+
+        //bodySp.color = Color.red;
+        GameApp.MapManager.ShowStepGrid(this,Step);
         
-        bodySp.color = Color.red;
 
     }
 
     protected virtual void OnUnSelectCallBack(System.Object arg)
     {
-        bodySp.color = Color.white;
+        GameApp.MapManager.HideStepGrid(this, Step);
     }
+
 
 
 }
