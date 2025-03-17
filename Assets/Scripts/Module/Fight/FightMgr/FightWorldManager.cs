@@ -6,7 +6,8 @@ using UnityEngine;
 public enum GameState 
 {
     Idle,
-    Enter
+    Enter,
+    Player
 }
 
 
@@ -19,6 +20,11 @@ public class FightWorldManager
 
     private FightUnitBase current; //当前所处的战斗单元
 
+    public List<Hero> heros; //战斗中的英雄集合
+
+    public List<Enemy> enemys; //战斗中的敌人集合  
+
+    public int RoundCount; //回合数
     public FightUnitBase Current
     {
         get
@@ -26,11 +32,10 @@ public class FightWorldManager
             return current;
         }
     }
-
-    public List<Hero> heros; //战斗中的英雄集合
     public FightWorldManager()
     {
         heros = new List<Hero>();
+        enemys = new List<Enemy>();
         ChangeState(GameState.Idle);
 
     }
@@ -61,10 +66,29 @@ public class FightWorldManager
             case GameState.Enter:
                 _current = new FightEnter();
                 break;
-
+            case GameState.Player:
+                _current = new FightPlayerUnit();
+                break;
 
         }
         _current.Init();
+    }
+
+    //进入战斗 初始化 一些信息 敌人信息 回合数等
+    public void EnterFight()
+    {
+        RoundCount = 1;
+        heros = new List<Hero>();
+        enemys = new List<Enemy>();
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("Enemy"); //给怪物添加Enemy标签
+        Debug.Log("enemy:" + objs.Length);  
+        for(int i=0; i < objs.Length; i++)
+        {
+            Enemy enemy = objs[i].GetComponent<Enemy>();
+            //当前位置被占用了 要把对应方块类型设置为障碍物     
+            GameApp.MapManager.ChangeBlockType(enemy.RowIndex, enemy.ColIndex, BlockType.Obstacle);
+            enemys.Add(objs[i].GetComponent<Enemy>());
+        }
     }
 
     //添加英雄

@@ -7,6 +7,7 @@ public class FightEnter : FightUnitBase
     public override void Init()
     {
         GameApp.MapManager.Init();
+        GameApp.FightManager.EnterFight(); 
     }
 
 

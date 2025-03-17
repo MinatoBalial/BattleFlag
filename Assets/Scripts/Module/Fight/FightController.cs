@@ -31,6 +31,13 @@ public class FightController : BaseController
             parentTf = GameApp.ViewManager.worldCanvasTf,//设置到世界画布
             Sorting_Order = 2
         });
+        GameApp.ViewManager.Register(ViewType.TipView, new ViewInfo()
+        {
+            PrefabName = "TipView",
+            controller = this,
+            parentTf = GameApp.ViewManager.canvasTf, 
+            Sorting_Order = 2
+        });
         InitModuleEvent();
             
     }

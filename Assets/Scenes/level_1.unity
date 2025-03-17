@@ -2766,6 +2766,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: emo (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1590390433344837568, guid: 25e85a86cdbaa9c45a144c91e7eef0c5, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1603773428299211923, guid: 25e85a86cdbaa9c45a144c91e7eef0c5, type: 3}
       propertyPath: m_LocalScale.x
       value: -1
@@ -2870,7 +2874,7 @@ MonoBehaviour:
   MaxHp: 0
   CurHp: 0
   RowIndex: 7
-  ColIndex: 15
+  ColIndex: 14
   bodySp: {fileID: 0}
   stopObj: {fileID: 0}
   ani: {fileID: 0}
@@ -2930,6 +2934,10 @@ PrefabInstance:
     - target: {fileID: 1590390433344837568, guid: 25e85a86cdbaa9c45a144c91e7eef0c5, type: 3}
       propertyPath: m_Name
       value: emo (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590390433344837568, guid: 25e85a86cdbaa9c45a144c91e7eef0c5, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 1603773428299211923, guid: 25e85a86cdbaa9c45a144c91e7eef0c5, type: 3}
       propertyPath: m_LocalScale.x
@@ -2995,13 +3003,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: emo
       objectReference: {fileID: 0}
+    - target: {fileID: 1590390433344837568, guid: 25e85a86cdbaa9c45a144c91e7eef0c5, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1603773428299211923, guid: 25e85a86cdbaa9c45a144c91e7eef0c5, type: 3}
       propertyPath: m_LocalScale.x
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1603773428299211923, guid: 25e85a86cdbaa9c45a144c91e7eef0c5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 1603773428299211923, guid: 25e85a86cdbaa9c45a144c91e7eef0c5, type: 3}
       propertyPath: m_LocalPosition.y
