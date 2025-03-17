@@ -29,6 +29,7 @@ public class GameApp :Singleton<GameApp>
 
     public static UserInputManager UserInputManager;
 
+    public static CommandManager CommandManager;
     public override void Init()
     {
         TimerManager = new TimerManager();
@@ -42,7 +43,7 @@ public class GameApp :Singleton<GameApp>
         MapManager = new MapManager();
         GameDataManager = new GameDataManager();
         UserInputManager = new UserInputManager();
-
+        CommandManager = new CommandManager();
 
     }
 
@@ -51,5 +52,6 @@ public class GameApp :Singleton<GameApp>
         UserInputManager.Update();
         TimerManager.OnUpdate(dt);
         FightManager.Update(dt);
+        CommandManager.Update(dt);
     }
 }
