@@ -23,7 +23,7 @@ public class CommandManager : MonoBehaviour
     {
         get
         {
-            return true;
+            return current != null;
         }
     }
 

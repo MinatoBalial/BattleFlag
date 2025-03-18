@@ -23,7 +23,7 @@ public class AStarPoint
     {
         this.RowIndex = row;
         this.ColIndex = col;
-        this.Parent = Parent;
+        this.Parent = parent;
 
     }
 
@@ -170,7 +170,7 @@ public class AStar : MonoBehaviour
             AddOpen(current, current.RowIndex - 1, current.ColIndex);
         }
         //об
-        if(current.RowIndex +1 >= 0)
+        if(current.RowIndex + 1 < rowCount)
         {
             AddOpen(current, current.RowIndex + 1, current.ColIndex);
 
@@ -182,7 +182,7 @@ public class AStar : MonoBehaviour
 
         }
         //ср
-        if (current.ColIndex +1 >= 0)
+        if (current.ColIndex +1 < colCount)
         {
             AddOpen(current, current.RowIndex, current.ColIndex + 1);
 

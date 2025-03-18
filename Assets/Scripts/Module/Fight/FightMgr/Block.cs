@@ -54,10 +54,6 @@ public class Block : MonoBehaviour
         GameApp.MsgCenter.PostEvent(Defines.OnUnSelectEvent);
     }
 
-    void Start()
-    {
-
-    }
 
     private void OnMouseEnter()
     {
@@ -70,8 +66,17 @@ public class Block : MonoBehaviour
         selectSp.enabled = false;
     }
 
+    void Start()
+    {
 
+    }
 
+    //设置箭头方向的图片资源 和 颜色
+    public void SetDirSp(Sprite sp,Color col)
+    {
+        dirSp.sprite = sp;
+        dirSp.color = col;
+    }
 
 
 
