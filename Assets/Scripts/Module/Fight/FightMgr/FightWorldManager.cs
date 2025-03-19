@@ -127,10 +127,31 @@ public class FightWorldManager
         {
             enemys[i].IsStop = false;
         }
+        
     }
-
+    /// <summary>
+    /// 获得离目标最近的英雄
+    /// 
+    /// </summary>
+    /// <param name="model"></param>
+    /// <returns></returns>
     public ModelBase GetMinDisHero(ModelBase model)
     {
-
+        if (heros.Count == 0)
+        {
+            return null;
+        }
+        Hero hero = heros[0];
+        float min_dis = hero.GetDis(model);
+        for (int i = 0; i < heros.Count; i++)
+        {
+            float dis = heros[i].GetDis(model);
+            if (dis < min_dis)
+            {
+                min_dis = dis;
+                hero = heros[i];
+            }
+        }
+        return hero;
     }
 }
