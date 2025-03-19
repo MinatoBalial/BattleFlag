@@ -21,7 +21,9 @@ public class ShowSkillAreaCommand : BaseCommand
         if (Input.GetMouseButtonDown(0))
         {
             skill.HideSkillArea();
+
             Debug.Log("使用技能");
+            GameApp.CommandManager.AddCommand(new SkillCommand(model));
             return true;
         }   
     return false;   

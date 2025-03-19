@@ -135,6 +135,7 @@ public class MessageCenter : MonoBehaviour
 
     public void PostTempEvent(string eventName,System.Object arg = null)
     {
+
         if (tempMsgDic.ContainsKey(eventName))
         {
             tempMsgDic[eventName].Invoke(arg);

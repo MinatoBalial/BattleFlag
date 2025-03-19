@@ -31,7 +31,7 @@ public class SkillProperty
         AniName = data["AniName"];
         Time = float.Parse(data["Time"]) * 0.001f;
         AttackTime = float.Parse(data["AttackTime"]) * 0.001f;
-        AttackEffect = data["AttackEffect"];
+        AttackEffect = data["AttackEffect"].Trim();
         AttackRange = int.Parse(data["Range"]);
 
 

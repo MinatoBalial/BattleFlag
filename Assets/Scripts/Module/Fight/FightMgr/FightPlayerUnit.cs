@@ -8,7 +8,8 @@ public class FightPlayerUnit : FightUnitBase
     public override void Init()
     {
         base.Init();
-        Debug.Log(GameApp.FightManager.state + "test");
+        //Debug.Log(GameApp.FightManager.state + "test");
+        GameApp.FightManager.ResetEnemys();
         GameApp.ViewManager.Open(ViewType.TipView, "Íæ¼Ò»ØºÏ");
       }
 }

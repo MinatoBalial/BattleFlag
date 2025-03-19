@@ -36,10 +36,15 @@ public static class SkillHelper
         switch (skill.skillPro.Target)
         {
             case 0:
+                Debug.Log("0");
                 return GetTarget_0(skill);
             case 1:
+                Debug.Log("1");
+
                 return GetTarget_1(skill);
             case 2:
+                Debug.Log("2");
+
                 return GetTarget_2(skill);
         }
 
