@@ -75,6 +75,12 @@ public class MapManager
 
     }
 
+    //获取格子位置
+    public Vector3 GetBlockPos(int row,int col)
+    {
+        return mapArr[row, col].transform.position;
+    }
+
     public BlockType GetBlockType(int row, int col)
     {
         return mapArr[row, col].Type;

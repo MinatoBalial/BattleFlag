@@ -19,12 +19,12 @@ public class Hero : ModelBase
 
     protected override void OnSelectCallBack(object arg)
     {
-        Debug.Log("特殊1");
+        //Debug.Log("特殊1");
         //玩家回合，才能选中角色
         if(GameApp.FightManager.state == GameState.Player)
         {
 
-            Debug.Log("特殊2");
+            //Debug.Log("特殊2");
 
             // 不能操作
             if (IsStop == true)
@@ -37,7 +37,7 @@ public class Hero : ModelBase
             {
                 return;
             }
-            Debug.Log("特殊3");
+            //Debug.Log("特殊3");
             //添加显示路径指令
             GameApp.CommandManager.AddCommand(new ShowPathCommand(this));
 
