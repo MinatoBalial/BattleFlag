@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// 命令管理器
 /// </summary>
-public class CommandManager : MonoBehaviour
+public class CommandManager
 {
     private Queue<BaseCommand> willDoCommandQueue; //将要执行的命令队列
     private Stack<BaseCommand> unDoStack; //撤销的命令 栈

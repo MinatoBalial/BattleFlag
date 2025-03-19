@@ -118,11 +118,13 @@ public class MessageCenter : MonoBehaviour
         }
     }
 
+
     public void AddTempEvent(string eventName,System.Action<object> callback)
     {
         if(tempMsgDic.ContainsKey(eventName))
         {
-            tempMsgDic[eventName] += callback;
+            tempMsgDic[eventName] = callback;
+    //添加的临时事件，是要覆盖的，不是累加
         }
         else
         {
