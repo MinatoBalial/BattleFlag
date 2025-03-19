@@ -17,7 +17,7 @@ public class OptionData
 /// </summary>
 public class FightModel : BaseModel
 {
-    List<OptionData> options;
+    public List<OptionData> options;
     public ConfigData optionConfig;
 
     public FightModel(BaseController ctl) : base(ctl)
@@ -32,9 +32,10 @@ public class FightModel : BaseModel
         foreach(var item in optionConfig.GetLines())
         {
             OptionData opData = new OptionData();
-            opData.Id = int.Parse(item.Value["Id"]);
-            opData.Name = item.Value["Name"];
-            opData.EventName = item.Value["EventName"];
+            opData.Id = int.Parse(item.Value["Id"].Trim());
+            opData.Name = item.Value["Name"].Trim();
+            opData.EventName = item.Value["EventName"].Trim();
+            //Debug.Log(opData.EventName.Length);
             options.Add(opData);
         }
     }
