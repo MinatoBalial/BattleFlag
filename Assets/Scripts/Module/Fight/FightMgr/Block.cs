@@ -26,7 +26,7 @@ public class Block : MonoBehaviour
         dirSp = transform.Find("dir").GetComponent<SpriteRenderer>();
 
         GameApp.MsgCenter.AddEvent(gameObject, Defines.OnSelectEvent, OnSelectCallBack);
-
+        GameApp.MsgCenter.AddEvent(Defines.OnUnSelectEvent, OnUnSelectCallBack);
     }
 
     private void OnDestroy()
@@ -54,6 +54,10 @@ public class Block : MonoBehaviour
         GameApp.MsgCenter.PostEvent(Defines.OnUnSelectEvent);
     }
 
+    void OnUnSelectCallBack(System.Object arg)
+    {
+        dirSp.sprite = null;
+    }
 
     private void OnMouseEnter()
     {
