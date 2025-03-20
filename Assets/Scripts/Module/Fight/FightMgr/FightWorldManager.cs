@@ -8,7 +8,8 @@ public enum GameState
     Idle,
     Enter,
     Player,
-    Enemy
+    Enemy,
+    GameOver
 }
 
 
@@ -73,6 +74,9 @@ public class FightWorldManager
             case GameState.Enemy:
                 _current = new FightEnemyUnit();
                 break;
+            case GameState.GameOver:
+                _current = new FightGameOverUnit();
+                break;
 
         }
         _current.Init();
@@ -110,6 +114,24 @@ public class FightWorldManager
     public void RemoveEnemy(Enemy enemy)
     {
         enemys.Remove(enemy);
+        GameApp.MapManager.ChangeBlockType(enemy.RowIndex, enemy.ColIndex,BlockType.Null);//死亡后不要占用格子
+        if (enemys.Count == 0)
+        {
+            ChangeState(GameState.GameOver);
+        }
+    }
+
+    //移除英雄
+
+    public void RemoveHero(Hero hero)
+    {
+        heros.Remove(hero);
+        GameApp.MapManager.ChangeBlockType(hero.RowIndex, hero.ColIndex, BlockType.Null);//死亡后不要占用格子
+
+        if (heros.Count == 0)
+        {
+            ChangeState(GameState.GameOver);
+        }
     }
 
     //重置英雄行动
@@ -154,4 +176,15 @@ public class FightWorldManager
         }
         return hero;
     }
+
+    //卸载资源
+    public void ReLoadRes()
+    {
+        heros.Clear();
+        enemys.Clear();
+        GameApp.MapManager.Clear();
+    }
+
+
+
 }

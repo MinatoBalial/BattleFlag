@@ -252,5 +252,12 @@ public class MapManager
             }
         }
     }
+    
+    //Çå¿Õ×ÊÔ´
+    public void Clear()
+    {
+        mapArr = null;
+        dirSpArr.Clear();
+    }
 
 }

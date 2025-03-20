@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Linq;
 //视图信息类
 public class ViewInfo
 {
@@ -139,6 +140,18 @@ public class ViewManager
         }
         
     }
+
+    public void CloseAll()
+    {
+        List<IBaseView> list = _opens.Values.ToList();
+
+        for (int i = list.Count-1; i >= 0 ; i--)
+        {
+            Debug.Log(list.Count+" " + i);
+            Close(list[i].ViewId);
+        }
+    }
+
 
 
     public void Open(ViewType type,params object[] args)

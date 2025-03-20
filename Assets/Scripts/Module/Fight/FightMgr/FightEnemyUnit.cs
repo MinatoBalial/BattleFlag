@@ -17,6 +17,16 @@ public class FightEnemyUnit : FightUnitBase
 
         //敌人移动 使用技能等
 
+        for (int i = 0; i < GameApp.FightManager.enemys.Count; i++)
+        {
+            Enemy enemy = GameApp.FightManager.enemys[i];
+            GameApp.CommandManager.AddCommand(new WaitCommand(0.25f)); //等待
+            GameApp.CommandManager.AddCommand(new AiMoveCommand(enemy));
+            GameApp.CommandManager.AddCommand(new WaitCommand(0.25f)); //等待
+            GameApp.CommandManager.AddCommand(new SkillCommand(enemy));//使用技能
+            GameApp.CommandManager.AddCommand(new WaitCommand(0.25f)); //等待
+
+        }
 
         //等待一段时间 切换回玩家回合
         GameApp.CommandManager.AddCommand(new WaitCommand(0.2f, delegate ()
